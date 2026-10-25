@@ -1,0 +1,316 @@
+TEST123<title>Vocab Quest Units 1–3</title>
+<style>body{margin:0}[hidden]{display:none!important}*{box-sizing:border-box}</style>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,700..900,100&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one open "booklet" card centred on a blue grid-paper desk; page tabs above, cover → 6 locked pages → finish. */
+:root{
+  --desk:#E9EEF9; --grid:#D7E0F3; --paper:#FFFFFF; --ink:#2F2B29; --muted:#6B6763;
+  --blue:#507BC2; --blue-ink:#2F5596; --sun:#F7B718; --sun-soft:#FFF3CF;
+  --ok:#1F8A5B; --ok-soft:#E3F5EC; --bad:#C2413A; --bad-soft:#FBE9E7; --line:#D9DEE8;
+  --display:"Fraunces", "Cooper Black", Georgia, serif;
+  --body:"Figtree", "Segoe UI", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --desk:#141A26; --grid:#1C2433; --paper:#1F2633; --ink:#EEF1F7; --muted:#A3ABBA;
+  --blue:#7FA3E3; --blue-ink:#A9C3F0; --sun:#F7B718; --sun-soft:#3A3220;
+  --ok:#5CCB98; --ok-soft:#173528; --bad:#F08A82; --bad-soft:#3B1E1C; --line:#334055; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --desk:#141A26; --grid:#1C2433; --paper:#1F2633; --ink:#EEF1F7; --muted:#A3ABBA;
+  --blue:#7FA3E3; --blue-ink:#A9C3F0; --sun:#F7B718; --sun-soft:#3A3220;
+  --ok:#5CCB98; --ok-soft:#173528; --bad:#F08A82; --bad-soft:#3B1E1C; --line:#334055; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{min-height:100%}
+body{background:var(--desk);color:var(--ink);font:500 16px/1.5 var(--body);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:28px 28px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 40px}
+.wrap{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.brand{font:900 1.35rem/1.1 var(--display);font-variation-settings:"SOFT" 100;color:var(--blue-ink);letter-spacing:-.01em}
+.brand small{display:block;font:600 .72rem/1.3 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.clock{font:700 1rem var(--body);font-variant-numeric:tabular-nums;background:var(--paper);border:2px solid var(--ink);border-radius:999px;padding:4px 14px}
+.tabs{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.tab{border:2px solid var(--line);background:var(--paper);border-radius:10px;padding:6px 4px;text-align:center;font:700 .78rem/1.2 var(--body);color:var(--muted)}
+.tab b{display:block;font:900 1.05rem var(--display);font-variation-settings:"SOFT" 100}
+.tab.done{border-color:var(--ok);color:var(--ok);background:var(--ok-soft)}
+.tab.now{border-color:var(--ink);color:var(--ink);background:var(--sun-soft)}
+.book{position:relative;background:var(--paper);border:2.5px solid var(--ink);border-radius:20px;box-shadow:8px 8px 0 var(--blue);padding:26px 26px 22px;min-height:420px}
+.book::before{content:"";position:absolute;left:-2.5px;top:30px;bottom:30px;width:10px;border-left:2.5px dashed var(--line)}
+.flip{animation:flip .45s ease}
+@keyframes flip{from{transform:perspective(900px) rotateY(-14deg);opacity:.4}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.flip{animation:none}}
+.eyebrow{display:inline-flex;gap:8px;align-items:center;font:700 .74rem var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--blue-ink)}
+.pill{background:var(--sun);color:#2F2B29;border-radius:999px;padding:2px 10px;letter-spacing:.06em}
+h1,h2{font-family:var(--display);font-variation-settings:"SOFT" 100;font-weight:900;text-wrap:balance;margin:6px 0 4px;line-height:1.05}
+h1{font-size:clamp(2.1rem,7vw,3.2rem);color:var(--blue-ink)}
+h2{font-size:clamp(1.5rem,4.6vw,2rem)}
+.lead{color:var(--muted);margin:0 0 16px;max-width:60ch}
+.bank{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 16px;padding:10px 12px;border-radius:12px;background:var(--sun-soft)}
+.bank span{font:600 .9rem var(--body);background:var(--paper);border:1.5px solid var(--ink);border-radius:8px;padding:2px 9px}
+.bank .lbl{border:0;background:none;padding:2px 4px 2px 0;font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:.72rem;align-self:center}
+.items{display:flex;flex-direction:column;gap:10px;margin:0;padding:0;list-style:none}
+.item{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;padding:10px 12px;border:1.5px solid var(--line);border-radius:12px}
+.item .n{font:900 1.05rem var(--display);color:var(--blue);line-height:1.6}
+.item .q{min-width:0;line-height:1.9}
+.item.good{border-color:var(--ok);background:var(--ok-soft)}
+.item.wrong{border-color:var(--bad);background:var(--bad-soft)}
+input[type=text],select{font:600 1rem var(--body);color:var(--ink);background:var(--paper);border:none;border-bottom:2.5px solid var(--blue);border-radius:6px 6px 0 0;padding:2px 6px;min-width:0}
+input[type=text]{width:9.5em;max-width:100%}
+input.wide{width:12em}
+select{border:2px solid var(--blue);border-radius:8px;padding:5px 8px;max-width:100%}
+input:focus-visible,select:focus-visible,button:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+input.ok,select.ok{border-color:var(--ok);color:var(--ok)}
+input.no,select.no{border-color:var(--bad);color:var(--bad)}
+.para{font-size:1.06rem;line-height:2.4;padding:14px 16px;border:1.5px solid var(--line);border-radius:12px}
+.choices{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.choice{font:600 .95rem var(--body);color:var(--ink);background:var(--paper);border:2px solid var(--line);border-radius:999px;padding:4px 12px;cursor:pointer}
+.choice[aria-pressed=true]{border-color:var(--blue);background:var(--blue);color:#fff}
+.bar{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:18px}
+.msg{font-weight:600;min-height:1.5em}
+.msg.ok{color:var(--ok)} .msg.bad{color:var(--bad)}
+.btn{font:800 1rem var(--body);border:2.5px solid var(--ink);border-radius:12px;padding:10px 20px;cursor:pointer;background:var(--sun);color:#2F2B29;box-shadow:3px 3px 0 var(--ink);transition:transform .1s}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.btn.blue{background:var(--blue);color:#fff}
+.btn.ghost{background:var(--paper);color:var(--ink)}
+.teams{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0 8px}
+.team{font:900 1.05rem var(--display);font-variation-settings:"SOFT" 100;padding:14px 6px;border:2.5px solid var(--line);border-radius:14px;background:var(--paper);color:var(--ink);cursor:pointer}
+.team[aria-pressed=true]{border-color:var(--ink);background:var(--sun)}
+.team[aria-pressed=true]{color:#2F2B29}
+.groups{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin:10px 0 16px}
+.group{font:900 1.1rem var(--display);font-variation-settings:"SOFT" 100;padding:10px 0;border:2.5px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink);cursor:pointer}
+.group[aria-pressed=true]{border-color:var(--ink);background:var(--sun);color:#2F2B29}
+.names{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 12px;margin:8px 0 4px}
+.names label{display:flex;flex-direction:column;gap:2px;font:700 .72rem var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.names input{width:100%;font-size:1rem;text-transform:none;letter-spacing:0}
+.crew{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 14px}
+.mate{display:inline-flex;align-items:center;gap:6px;font:600 .88rem var(--body);border:2px solid var(--line);border-radius:999px;padding:3px 10px 3px 4px;background:var(--paper)}
+.mate i{font-style:normal;display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;color:#fff;font:800 .78rem var(--body)}
+.mate small{font:700 .66rem var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.mate.typist{border-color:var(--ink);background:var(--sun-soft)}
+.owner{display:inline-flex;align-items:center;gap:4px;font:700 .74rem var(--body);color:var(--muted);margin-right:6px;vertical-align:1px}
+.owner i{font-style:normal;display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;color:#fff;font:800 .68rem var(--body)}
+.c0{background:#507BC2}.c1{background:#D9822B}.c2{background:#2E8B57}.c3{background:#9B4F96}
+.rules{margin:14px 0 0;padding-left:1.2em;color:var(--muted)}
+.rules li{margin:3px 0}
+.shake{animation:shake .35s}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+@media (prefers-reduced-motion:reduce){.shake{animation:none}}
+.done-card{text-align:center;padding:10px 0}
+.stamp{display:inline-block;font:900 clamp(2rem,8vw,3.4rem)/1 var(--display);font-variation-settings:"SOFT" 100;color:var(--ok);border:4px solid var(--ok);border-radius:14px;padding:10px 20px;transform:rotate(-4deg);margin:10px 0 16px}
+.stats{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:8px 0 18px}
+.stat{border:2px solid var(--line);border-radius:12px;padding:8px 16px;min-width:120px}
+.stat b{display:block;font:900 1.6rem var(--display);font-variant-numeric:tabular-nums}
+.stat span{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+@media (max-width:520px){
+  .groups{grid-template-columns:repeat(4,1fr)}
+  .names{grid-template-columns:1fr}
+  .book{padding:20px 16px 18px;box-shadow:5px 5px 0 var(--blue)}
+  .tab{font-size:0;padding:5px 2px}.tab b{font-size:1rem}
+  .teams{grid-template-columns:repeat(2,1fr)}
+  .item{grid-template-columns:22px 1fr;padding:9px}
+}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><small>Speaking Skill 1 · Review</small>Vocab Quest</div>
+    <div class="clock" id="clock" aria-live="off">00:00</div>
+  </header>
+  <nav class="tabs" id="tabs" aria-label="Booklet pages"></nav>
+  <main class="book" id="book"></main>
+</div>
+
+<script>
+const PAGES = [
+ { unit:"Unit 1 · Introductions", title:"Match it", lead:"Choose the word that matches each definition.",
+   kind:"select", options:["urban","rural","suburban","commute","retired","by myself"],
+   items:[
+    {q:"in the countryside, far from cities", a:["rural"]},
+    {q:"in or about a big city", a:["urban"]},
+    {q:"in an area just outside a city", a:["suburban"]},
+    {q:"travel regularly between home and school or work", a:["commute"]},
+    {q:"no longer working because of age", a:["retired"]},
+    {q:"alone, without other people", a:["by myself"]} ]},
+ { unit:"Unit 1 · Introductions", title:"Fill it in", lead:"Complete Lan's self-introduction. Use each word once.",
+   kind:"para", bank:["born","north","town","by myself","neighborhood","part-time job","free time","club"],
+   text:"Hi, I'm Lan. I was [[born]] in the [[north]] of Vietnam, in a small [[town]]. Now I live [[by myself]] in a quiet [[neighborhood]] near school. I have a [[part-time job]] at a café, and in my [[free time]] I go to the English [[club]]." },
+ { unit:"Unit 2 · Family", title:"Odd one out", lead:"Tap the word that does not belong in each group.",
+   kind:"odd", items:[
+    {words:["tall","short","thin","bossy"], a:"bossy"},
+    {words:["easygoing","funny","hardworking","selfish"], a:"selfish"},
+    {words:["the oldest","the youngest","the middle child","bald"], a:"bald"},
+    {words:["cousin","grandparent","relatives","pet"], a:"pet"},
+    {words:["strict","spoiled","average","talkative"], a:"average"} ]},
+ { unit:"Unit 2 · Family", title:"Complete the phrase", lead:"Type the missing words.",
+   kind:"blanks", items:[
+    {q:"I never fight with my sister. We [[get along well|get along]].", wide:true},
+    {q:"People say I'm [[like]] my dad. We're both quiet and hardworking."},
+    {q:"I have no brothers or sisters. I'm [[an only child]].", wide:true},
+    {q:"My grandfather [[passed away]] last year."},
+    {q:"My brother always tells me what to do. He's so [[bossy]]!"},
+    {q:"I'm very [[different from]] my mom. She's talkative; I'm shy."} ]},
+ { unit:"Unit 3 · Shopping", title:"Who or what am I?", lead:"Read the clue and type the answer.",
+   kind:"blanks", bank:["cashier","window-shopping","impulse buyer","consignment shop","guarantee","comparison shopping"],
+   items:[
+    {q:"I take your money at the checkout. → [[cashier]]"},
+    {q:"You look in shop windows but don't buy anything. → [[window-shopping|window shopping]]", wide:true},
+    {q:"I buy things suddenly, without planning. → [[impulse buyer]]"},
+    {q:"A shop that sells used things for their owners. → [[consignment shop|consignment shops|consignment store]]", wide:true},
+    {q:"A promise that the store will fix or replace the product. → [[guarantee]]"},
+    {q:"You visit several stores to find the lowest price. → [[comparison shopping]]", wide:true} ]},
+ { unit:"Unit 3 · Shopping", title:"Opposites & collocations", lead:"Type the missing words.",
+   kind:"blanks", items:[
+    {q:"cheap ↔ [[expensive]]"},
+    {q:"good quality ↔ [[low quality|poor quality]]"},
+    {q:"Can I [[try]] this jacket [[on]]?"},
+    {q:"It's broken. I want to [[return]] it."},
+    {q:"Only $5 for these shoes? What a good [[deal|bargain]]!"},
+    {q:"I don't buy [[brand-name|brand name]] clothes. They're too expensive."} ]}
+];
+
+const KEY="vq13-state-v2";
+let S = load() || fresh();
+function fresh(){return {names:["","","",""], team:null, start:null, end:null, page:-1, solved:[], checks:0, miss:{}}}
+function load(){try{return JSON.parse(localStorage.getItem(KEY))}catch(e){return null}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+const norm = s => (s||"").toLowerCase().replace(/[’']/g,"'").replace(/[-–]/g," ").replace(/[.,!?]/g,"").replace(/\s+/g," ").trim();
+const esc = s => s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const $ = s => document.querySelector(s);
+const book=$("#book"), tabs=$("#tabs"), clock=$("#clock");
+
+function fmt(ms){const t=Math.max(0,Math.floor(ms/1000));return String(Math.floor(t/60)).padStart(2,"0")+":"+String(t%60).padStart(2,"0")}
+setInterval(()=>{ if(S.start) clock.textContent = fmt((S.end||Date.now())-S.start) },500);
+
+function nm(i){const n=(S.names&&S.names[i]||"").trim();return n||("Member "+(i+1))}
+function ini(i){const n=nm(i);return esc(n.startsWith("Member ")?String(i+1):n.split(/\s+/).pop()[0].toUpperCase())}
+function chip(i,cls){return `<span class="${cls}"><i class="c${i}">${ini(i)}</i>${esc(nm(i))}</span>`}
+function renderTabs(){
+  tabs.innerHTML = PAGES.map((p,i)=>{
+    const st = S.solved.includes(i) ? "done" : (i===S.page ? "now" : "");
+    const icon = S.solved.includes(i) ? "✓" : (i===S.page ? "▸" : "·");
+    return `<div class="tab ${st}" aria-label="Page ${i+1}${S.solved.includes(i)?' done':''}"><b>${i+1}</b>${icon}</div>`}).join("");
+}
+
+function render(){
+  renderTabs();
+  book.classList.remove("flip"); void book.offsetWidth; book.classList.add("flip");
+  if(S.page===-1) return cover();
+  if(S.page>=PAGES.length) return finish();
+  page(S.page);
+}
+
+function cover(){
+  book.innerHTML = `
+   <span class="eyebrow"><span class="pill">Units 1–3</span> Introductions · Family · Shopping</span>
+   <h1>Six pages. Four players. One phone.</h1>
+   <p class="lead">Work in a group of 4. Each page unlocks only when every answer is correct. Finish all six pages and raise your hand.</p>
+   <div class="eyebrow">1 · Your group number</div>
+   <div class="groups" role="group" aria-label="Group number">${Array.from({length:12},(_,k)=>k+1).map(t=>`<button class="group" id="team${t}" aria-pressed="${S.team===t}" data-t="${t}">${t}</button>`).join("")}</div>
+   <div class="eyebrow">2 · Your names</div>
+   <div class="names">${[0,1,2,3].map(i=>`<label for="nm${i}">Member ${i+1}<input type="text" id="nm${i}" maxlength="24" placeholder="Name" value="${esc(S.names[i]||"")}" autocomplete="off"></label>`).join("")}</div>
+   <ol class="rules"><li>Use one phone. The <b>typist</b> changes every page, so everyone types once or twice.</li><li>Every question has an owner. The owner answers out loud first, then the group agrees.</li><li>English only. After two wrong tries, the first letter appears as a hint.</li><li>The clock starts when you open page 1.</li></ol>
+   <div class="bar"><span class="msg" id="msg" role="status"></span><button class="btn" id="go">Open page 1 →</button></div>`;
+  book.querySelectorAll(".names input").forEach((el,i)=>el.addEventListener("input",()=>{S.names[i]=el.value;save()}));
+  book.querySelectorAll(".group").forEach(b=>b.onclick=()=>{S.team=+b.dataset.t;save();
+    book.querySelectorAll(".group").forEach(x=>x.setAttribute("aria-pressed",String(x===b)))});
+  $("#go").onclick=()=>{ const m=$("#msg");
+    if(!S.team){ m.textContent="Choose your group number first."; m.className="msg bad"; return }
+    const filled=S.names.filter(n=>n.trim()).length;
+    if(filled<4){ m.textContent=`Type all 4 names (${filled}/4 done). Groups of 3? Type the same name twice.`; m.className="msg bad"; return }
+    S.page=0; S.start=S.start||Date.now(); save(); render() };
+}
+
+let blankId=0;
+function blankHTML(spec,wide,pi,key){
+  const alts = spec.split("|");
+  const id = `b${pi}_${key}`;
+  const tries = S.miss[id]||0;
+  const ph = tries>=2 ? alts[0][0]+"…" : "";
+  return `<input type="text" id="${id}" class="${wide?'wide':''}" data-a="${esc(alts.join('|'))}" placeholder="${esc(ph)}" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="answer">`;
+}
+function withBlanks(text,pi,prefix,wide){
+  let k=0; return esc(text).replace(/\[\[(.+?)\]\]/g,(m,g)=>blankHTML(g.replace(/&amp;/g,"&"),wide,pi,prefix+"_"+(k++)));
+}
+
+function page(pi){
+  const P=PAGES[pi];
+  let body="";
+  const bank = P.bank ? `<div class="bank"><span class="lbl">Word bank</span>${P.bank.map(w=>`<span>${esc(w)}</span>`).join("")}</div>` : "";
+  if(P.kind==="select"){
+    body = `<ol class="items">${P.items.map((it,i)=>`<li class="item" id="it${i}"><span class="n">${i+1}</span><div class="q">${chip((i+pi)%4,"owner")}${esc(it.q)}<br>
+      <select id="s${pi}_${i}" data-a="${esc(it.a.join('|'))}" aria-label="answer ${i+1}"><option value="">— choose —</option>${P.options.map(o=>`<option>${esc(o)}</option>`).join("")}</select></div></li>`).join("")}</ol>`;
+  } else if(P.kind==="para"){
+    body = bank + `<div class="para item" id="it0" style="display:block">${withBlanks(P.text,pi,"p",false)}</div>`;
+  } else if(P.kind==="odd"){
+    body = `<ol class="items">${P.items.map((it,i)=>`<li class="item" id="it${i}"><span class="n">${i+1}</span><div class="q">${chip((i+pi)%4,"owner")}<div class="choices" role="group" aria-label="group ${i+1}" data-a="${esc(it.a)}">${it.words.map(w=>`<button class="choice" aria-pressed="false" id="c${pi}_${i}_${esc(w).replace(/\s/g,'_')}">${esc(w)}</button>`).join("")}</div></div></li>`).join("")}</ol>`;
+  } else {
+    body = bank + `<ol class="items">${P.items.map((it,i)=>`<li class="item" id="it${i}"><span class="n">${i+1}</span><div class="q">${chip((i+pi)%4,"owner")}${withBlanks(it.q,pi,"i"+i,it.wide)}</div></li>`).join("")}</ol>`;
+  }
+  book.innerHTML = `
+    <span class="eyebrow"><span class="pill">Page ${pi+1} of 6</span> ${esc(P.unit)}</span>
+    <h2>${esc(P.title)}</h2><p class="lead">${esc(P.lead)}</p>
+    <div class="crew" aria-label="Roles on this page">${[0,1,2,3].map(i=>`<span class="mate ${i===pi%4?'typist':''}"><i class="c${i}">${ini(i)}</i>${esc(nm(i))}${i===pi%4?' <small>types</small>':''}</span>`).join("")}</div>
+    ${P.kind==="para"?`<p class="lead" style="margin-top:-6px">Gaps 1–2: ${esc(nm(pi%4))} · 3–4: ${esc(nm((pi+1)%4))} · 5–6: ${esc(nm((pi+2)%4))} · 7–8: ${esc(nm((pi+3)%4))}</p>`:""}
+    ${body}
+    <div class="bar"><span class="msg" id="msg" role="status"></span><button class="btn blue" id="check">Check page</button></div>`;
+  book.querySelectorAll(".choices").forEach(g=>g.querySelectorAll(".choice").forEach(b=>b.onclick=()=>{
+    g.querySelectorAll(".choice").forEach(x=>x.setAttribute("aria-pressed","false")); b.setAttribute("aria-pressed","true");
+    b.closest(".item").classList.remove("good","wrong")}));
+  book.querySelectorAll("input,select").forEach(el=>el.addEventListener("input",()=>{el.classList.remove("ok","no")}));
+  book.querySelectorAll("input").forEach(el=>el.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();check(pi)}}));
+  $("#check").onclick=()=>check(pi);
+  const first=book.querySelector("input,select"); if(first && window.innerWidth>700) first.focus();
+}
+
+function check(pi){
+  S.checks++;
+  let allOk=true;
+  book.querySelectorAll("input[data-a],select[data-a]").forEach(el=>{
+    const ok = el.dataset.a.split("|").some(a=>norm(a)===norm(el.value));
+    el.classList.toggle("ok",ok); el.classList.toggle("no",!ok);
+    if(!ok){allOk=false; if(el.tagName==="INPUT"){S.miss[el.id]=(S.miss[el.id]||0)+1;
+      if(S.miss[el.id]>=2){el.placeholder=el.dataset.a.split("|")[0][0]+"…"}}}
+  });
+  book.querySelectorAll(".choices").forEach(g=>{
+    const sel=g.querySelector('[aria-pressed="true"]'); const ok = sel && norm(sel.textContent)===norm(g.dataset.a);
+    if(!ok) allOk=false; g.closest(".item").classList.toggle("good",!!ok); g.closest(".item").classList.toggle("wrong",!ok);
+  });
+  book.querySelectorAll(".item").forEach(it=>{
+    const els=it.querySelectorAll("[data-a]"); if(!els.length) return;
+    const ok=[...els].every(e=>e.classList.contains("ok"));
+    it.classList.toggle("good",ok); it.classList.toggle("wrong",!ok);
+  });
+  const msg=$("#msg"); save();
+  if(allOk){
+    if(!S.solved.includes(pi)) S.solved.push(pi);
+    msg.textContent="Page unlocked!"; msg.className="msg ok";
+    const btn=$("#check"); btn.textContent = pi===PAGES.length-1 ? "Finish the booklet →" : `Turn to page ${pi+2} →`;
+    btn.className="btn"; btn.onclick=()=>{S.page=pi+1; if(S.page>=PAGES.length) S.end=Date.now(); save(); render(); window.scrollTo({top:0})};
+    renderTabs(); save();
+  } else {
+    const wrong = book.querySelectorAll(".item.wrong").length;
+    msg.textContent = `${wrong} answer${wrong>1?"s":""} still wrong. Fix the red ones and check again.`; msg.className="msg bad";
+    book.classList.remove("shake"); void book.offsetWidth; book.classList.add("shake");
+  }
+}
+
+function finish(){
+  const t = fmt((S.end||Date.now())-S.start);
+  book.innerHTML = `<div class="done-card">
+    <span class="eyebrow"><span class="pill">Group ${S.team}</span> Units 1–3 review</span><br>
+    <div class="stamp">MISSION COMPLETE</div>
+    <p class="lead" style="margin-inline:auto">Raise your hand now and show this screen to your teacher.</p>
+    <div class="crew" style="justify-content:center">${[0,1,2,3].map(i=>chip(i,"mate")).join("")}</div>
+    <div class="stats"><div class="stat"><b>${t}</b><span>Time</span></div><div class="stat"><b>6/6</b><span>Pages</span></div><div class="stat"><b>${S.checks}</b><span>Checks used</span></div></div>
+    <button class="btn ghost" id="again">Start a new booklet</button>
+    <p class="msg" id="msg" role="status"></p></div>`;
+  let armed=false;
+  $("#again").onclick=()=>{ if(!armed){armed=true; const m=$("#msg"); m.textContent="Tap again to erase this group's result and start over."; m.className="msg bad"; return}
+    S=fresh(); save(); clock.textContent="00:00"; render() };
+}
+
+render();
+</script>
