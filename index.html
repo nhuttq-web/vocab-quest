@@ -295,16 +295,35 @@ function check(pi){
   }
 }
 
+const FORM_URL="https://docs.google.com/forms/d/e/1FAIpQLScf70kIQxR-VsOee63aruTaifgy2HmksUPRAuAV_5wlC6q5cA/formResponse";
+function sendResult(t){
+  const p=new URLSearchParams();
+  p.append("entry.1512734340", String(S.team||"").trim());
+  p.append("entry.523114431", [0,1,2,3].map(nm).join(", "));
+  p.append("entry.747004026", t);
+  p.append("entry.766444547", String(S.checks));
+  return fetch(FORM_URL,{method:"POST",mode:"no-cors",body:p});
+}
+function trySend(t){
+  const el=$("#sent"); if(!el) return;
+  if(S.sent){ el.textContent="✓ Result sent to your teacher."; el.className="msg ok"; return }
+  el.textContent="Sending your result to the teacher…"; el.className="msg";
+  sendResult(t).then(()=>{ S.sent=true; save(); el.textContent="✓ Result sent to your teacher."; el.className="msg ok" })
+    .catch(()=>{ el.innerHTML='Could not send. Check the internet, then <button class="btn ghost" id="resend" style="padding:4px 12px">Send again</button>'; el.className="msg bad"; $("#resend").onclick=()=>trySend(t) });
+}
+
 function finish(){
   const t = fmt((S.end||Date.now())-S.start);
   book.innerHTML = `<div class="done-card">
     <span class="eyebrow"><span class="pill">${esc(String(S.team||"").trim())}</span> Units 1–3 review</span><br>
     <div class="stamp">MISSION COMPLETE</div>
     <p class="lead" style="margin-inline:auto">Raise your hand now and show this screen to your teacher.</p>
+    <p class="msg" id="sent" role="status"></p>
     <div class="crew" style="justify-content:center">${[0,1,2,3].map(i=>chip(i,"mate")).join("")}</div>
     <div class="stats"><div class="stat"><b>${t}</b><span>Time</span></div><div class="stat"><b>6/6</b><span>Pages</span></div><div class="stat"><b>${S.checks}</b><span>Checks used</span></div></div>
     <button class="btn ghost" id="again">Start a new booklet</button>
     <p class="msg" id="msg" role="status"></p></div>`;
+  trySend(t);
   let armed=false;
   $("#again").onclick=()=>{ if(!armed){armed=true; const m=$("#msg"); m.textContent="Tap again to erase this group's result and start over."; m.className="msg bad"; return}
     S=fresh(); save(); clock.textContent="00:00"; render() };
