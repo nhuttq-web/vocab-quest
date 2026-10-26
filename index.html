@@ -277,7 +277,7 @@ function check(pi){
     if(!ok) allOk=false; g.closest(".item").classList.toggle("good",!!ok); g.closest(".item").classList.toggle("wrong",!ok);
   });
   book.querySelectorAll(".item").forEach(it=>{
-    const els=it.querySelectorAll("[data-a]"); if(!els.length) return;
+    const els=it.querySelectorAll("input[data-a],select[data-a]"); if(!els.length) return;
     const ok=[...els].every(e=>e.classList.contains("ok"));
     it.classList.toggle("good",ok); it.classList.toggle("wrong",!ok);
   });
